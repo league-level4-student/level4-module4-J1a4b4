@@ -11,7 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-public class PolymorphWindow extends JPanel implements ActionListener {
+public class PolymorphWindow2 extends JPanel implements ActionListener {
 	public static final int WIDTH = 600;
 	public static final int HEIGHT = 600;
 
@@ -21,7 +21,7 @@ public class PolymorphWindow extends JPanel implements ActionListener {
 	private Timer timer;
 
 	public static void main(String[] args) {
-		new PolymorphWindow().buildWindow();
+		new PolymorphWindow2().buildWindow();
 	}
 
 	public void buildWindow() {
@@ -32,12 +32,8 @@ public class PolymorphWindow extends JPanel implements ActionListener {
 		window.pack();
 		window.setVisible(true);
 
-		pMs.add(new BluePolymorph(300, 300, 300, 300));
-		pMs.add(new RedPolymorph(300, 0, 300, 300));
-		pMs.add(new BluePolymorph(0, 0, 300, 300));
-		pMs.add(new RedPolymorph(0, 300, 300, 300));
-		pMs.add(new MovingPolymorph(300, 300, 300, 300, -10, -300));
-		pMs.add(new MovingPolymorph(0, 0, 300, 300, 10, 300));
+		pMs.add(new CircularMovementPolymorph(50, 50));
+		pMs.add(new ImagePolymorph(100, 100, 17, 30, "Hornet.png"));
 
 		timer = new Timer(1000 / 30, this);
 		timer.start();
