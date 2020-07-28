@@ -7,9 +7,6 @@ public class CircularMovementPolymorph extends Polymorph {
 
 	private double theta;
 	
-	private int originalX;
-	private int modX;
-	
 	CircularMovementPolymorph(int x, int y) {
 		super(x, y);
 		setTheta(0.0);
@@ -17,11 +14,11 @@ public class CircularMovementPolymorph extends Polymorph {
 
 	@Override
 	public void update() {
-		setX((int)Math.cos(theta));
-		setY((int)Math.sin(theta));
-		theta = theta + 1;
-		if (theta > 360) {
-			theta = theta - 360;
+		setX((int)(getX() + (Math.cos(theta) * 100)));
+		setY((int)(getY() + (Math.sin(theta) * 100)));
+		setTheta(getTheta() + 1);
+		if (getTheta() > 360) {
+			setTheta(getTheta() - 360);
 		}
 	}
 
