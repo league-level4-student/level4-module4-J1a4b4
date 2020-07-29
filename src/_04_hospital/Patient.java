@@ -11,4 +11,9 @@ public class Patient {
 	public void setFeelsCaredFor(boolean feelsCaredFor) {
 		this.feelsCaredFor = feelsCaredFor;
 	}
+
+	public void checkPulse() {
+		setFeelsCaredFor(true);
+	}
+	
 }

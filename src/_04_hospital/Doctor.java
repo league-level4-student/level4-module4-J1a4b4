@@ -7,9 +7,15 @@ public class Doctor {
 
 	private boolean performsSurgery;
 	private boolean makesHouseCalls;
+	private boolean isFull;
 	
-	private List<Patient> patients = new ArrayList<Patient>();
+	private List<Patient> patients;
 
+	public Doctor() {
+		isFull = false;
+		patients = new ArrayList<Patient>();
+	}
+	
 	public boolean performsSurgery() {
 		return performsSurgery;
 	}
@@ -40,7 +46,22 @@ public class Doctor {
 		}
 	}
 
-	public void assignPatient(Patient patient) {
-		patients.add(patient);
+	public void assignPatient(Patient patient) throws DoctorFullException {
+		if (getPatients().size() == 3) {
+			throw new DoctorFullException();
+		}else {
+			patients.add(patient);
+			if (getPatients().size() == 3) {
+				setFull(true);
+			}
+		}
+	}
+
+	public boolean isFull() {
+		return isFull;
+	}
+
+	public void setFull(boolean isFull) {
+		this.isFull = isFull;
 	}
 }
